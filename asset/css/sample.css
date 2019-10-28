@@ -1,0 +1,64 @@
+h2 {
+    color: coral;
+}
+
+div {
+           border-radius: 5px;
+           background-color: cornflowerblue;
+           padding: 20px;
+           margin: 10px;
+
+}
+
+input[type=text],[type=tel], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid red;
+    border-radius: 4px;
+    box-sizing: border-box;
+        background-color: rgb(235, 235, 235);
+      
+}
+
+input[type=submit] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid red;
+    border-radius: 4px;
+    box-sizing: border-box;
+        background-color: tomato;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(134, 134, 134);
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(189, 241, 250);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+li {float: left;}
+
+li a {
+    display: block;
+    color: rgb(41, 41, 41);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) 
+{
+    background-color: bisque;
+}
+

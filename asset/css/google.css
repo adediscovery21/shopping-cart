@@ -1,0 +1,56 @@
+.G1{
+    color: royalblue;
+
+}
+.o1{
+    color: rgb(163, 7, 7);
+}
+.o2{ color: rgb(255, 174, 0);}
+.g2{
+    color: midnightblue;
+}
+.l1{color: rgb(9, 129, 61);}
+.e1{color: rgb(163, 7, 7);}
+
+
+div{
+    margin-left: 30%;
+    margin-top: 200px;
+    
+
+}
+.google{
+    margin-left: 9%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+
+.ng{
+    
+    margin-left: 38%;
+    margin-top: -8%;
+    font-size: 20px;
+    
+    
+}
+
+.input{
+    
+    margin: 10%;
+    margin-top: -10%;
+    width: 50%;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.button{
+    margin: 10%;
+    margin-top: -1%;
+    margin-left: 15%;
+}
+.com{
+    margin: 10%;
+    margin-top: -4%;
+    margin-left: 8%;
+}
