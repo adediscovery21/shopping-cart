@@ -94,6 +94,13 @@ img{
     margin-left: 10px;
 }
 
+.my-btn{
+    border: none;
+    background-color: transparent;
+    color: #5c4d74;
+    font-weight: bold;
+}
+
 
 
 @media only screen and (min-width: 600px) {

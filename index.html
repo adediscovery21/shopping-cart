@@ -15,7 +15,7 @@
         
     </head>
     <body>
-        <div class="row">
+        <div class="row" id="app">
             <div class="col-md-2 side.bar">
             <div class="side">
             <div class="shopping-cart-text">
@@ -23,7 +23,7 @@
             </div>
             <hr class="small-line">
             <img src="./asset/images/cart.png.png" height="200px" width="200px" />
-            <button onclick="ChangeView()" type="button" class="btn btn-light">
+            <button type="button" class="btn btn-light" @click="changeView()">
             View Shopping Cart
             </button>
     
@@ -33,15 +33,24 @@
         <input class="xty form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <span class="fas fa-search"></span>
         <hr />
-        <div class="empty-top"></div> 
-        <div class="items">
-
-        <p>Item name: T-shirt <span class="quantity"><label>Quantity:</label><input type="text"></span></p>
+        <div class="empty-top" v-if="showShoppingCart === false"></div> 
+        <div class="items" v-if="showShoppingCart === false">
+         <div class="item" v-for="item in storeItems">
+           <p>
+             Item name: {{item.itemName}}
+             <span class="quantity"><label>Quantity</label> <input v-model="item.quantity" type="text"></span>
+             </p>
+             <p>price: <span class="price">N{{item.price}}</span></p>
+             <button class="add-cart" @click="addToCart(item)">Add to Cart</button>
+             <hr />
+           
+         </div>
+        <!-- <p>Item name: T-shirt <span class="quantity"><label>Quantity:</label><input type="text"></span></p>
         <p>Price: <span class="price">N6000</span></p>
-        <button class="add-cart animated bounce infinite">Add to cart</button>
+        <button class="add-cart animated bounce infinite">Add to cart</button> -->
         <hr>
 
-        <p>Item name: Dress <span class="quantity"><label>Quantity:</label><input type="text"></span></p>
+        <!-- <p>Item name: Dress <span class="quantity"><label>Quantity:</label><input type="text"></span></p>
         <p>Price: <span class="price">N8000</span></p>
         <button class="add-cart animated bounce infinite">Add to cart</button>
         <hr>
@@ -54,78 +63,43 @@
         <p>Item name: Jeans <span class="quantity"><label>Quantity:</label><input type="text"></span></p>
         <p>Price: <span class="price">N7000</span></p>
         <button class="add-cart animated bounce infinite">Add to cart</button>
-        <hr>
+        <hr> -->
+      </div>
 
+
+      <div class="empty-top" v-if="showShoppingCart === true"></div>
+            <div class="items" v-if="showShoppingCart === true">
         <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Item Nmae</th>
-                <th scope="col">price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col"></th>
+            
+             <thead class="">
+              <tr class="tableColor">
+                <th class="remove-button" scope="col">Item Name</th>
+                <th class="remove-button" scope="col">price</th>
+                <th class="remove-button" scope="col">Quantity</th>
+                <th class="remove-button" scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">T-shirt</th>
-                <td>#6000</td>
-                <td>1</td>
-                <td>Remove</td>
-              </tr>
-              <tr>
-                <th scope="row">Dress</th>
-                <td>#8000</td>
-                <td>2</td>
-                <td>Remove</td>
-              </tr>
-              <tr>
-                <th scope="row">shorts</th>
-                <td>#4000</td>
-                <td>3</td>
-                <td>Remove</td>
-              </tr>
-              <tr>
-                <th scope="row">Jeans</th>
-                <td>#7000</td>
-                <td>2</td>
-                <td>Remove</td>
-              </tr>
+            <tr v-for="(item, index) in cart">
+              <td>{{item.itemName}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+              <td><button class="my-btn" @click="removeFromCart(item, index)">Remove</button></td>
+
+            </tr>
             </tbody>
           </table>
           
           <table class="table">
-            <thead class="thead-light">
-              <!-- <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr> -->
+            <thead class="">
             </tbody>
           </table>
+          <h2>Total: {{total}}</h2>
+        </div>
     </div>
 </div>
         
-        <script src="" async defer></script>
+        <script src="./asset/js/vue.js"></script>
+        <script src="./asset/js/cart.js"></script>
     </body>
 </html>
