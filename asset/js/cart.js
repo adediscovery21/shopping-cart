@@ -1,30 +1,11 @@
-const store = [{
-    itemName: "T-shirt",
-    price: 6000,
-    quantity: 0
-},
-{
-    itemName: "Dress",
-    price: 8000,
-    quantity: 0
-},
-{
-    itemName: "Shorts",
-    price: 4000,
-    quantity: 0
-},
-{
-    itemName: "Jean",
-    price: 7000,
-    quantity: 0
-}];
+const url = "http://localhost:3000/store"
 
 let app = new Vue({
     el: "#app",
     data: {
         title: "Shopping cart",
         showShoppingCart: false,
-        storeItems: store,
+        storeItems: [],
         cart: [],
         total: 0
     },
@@ -53,7 +34,18 @@ let app = new Vue({
                    total = total + (this.cart[i].price * this.cart[i].quantity)
                }
                this.total = total
+         },
+         fetchStoreData: async function fetchData(){
+             let res = await fetch(url, {
+                 method: "GET",
+             })
+             const decodedResponse = await res.json()
+             this.storeItems = decodedResponse.result
          }
 
+    },
+    mounted(){
+        console.log("app is ready")
+        this.fetchStoreData()
     }
 })
